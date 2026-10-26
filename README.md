@@ -1,10 +1,10 @@
-# Model 18 — AI Quant Trading Terminal (BTCUSD)
+# Quant Trading Terminal (BTCUSD)
 
 > **Status:** Research/prototype software. The live executor can submit real orders to MetaTrader 5. Test in a demo account first. This project is not financial advice and does not guarantee profits.
 
 ## 1. Overview
 
-Model 18 is a Python-based BTCUSD automated-trading prototype connected to MetaTrader 5 (MT5). The intended operator workflow is simple: start the terminal with `launch_terminal.bat`, monitor the Streamlit dashboard, and independently verify actual order activity in MT5. When the setup is correct and the configured model/strategy conditions are met, the executor can submit an entry and apply the configured stop-loss/take-profit logic. No trade is guaranteed to occur; the market conditions, MT5 connection, broker permissions, model files, and execution checks must all be valid.
+This Model is a Python-based BTCUSD automated-trading prototype connected to MetaTrader 5 (MT5). When the setup is correct and the configured model/strategy conditions are met, the executor can submit an entry and apply the configured stop-loss/take-profit logic. 
 
 The project has four main parts:
 
@@ -13,7 +13,7 @@ The project has four main parts:
 3. **PyTorch classifier** — learns to classify examples as `HOLD`, `BUY`, or `SELL`.
 4. **Live executor + Streamlit dashboard** — loads a trained model, evaluates live ticks, may submit orders, and publishes status for the dashboard.
 
-The main live entry point is `launch_terminal.bat`. See [`WORKING.md`](WORKING.md) for the operator guide with embedded screenshots.
+The main live entry point is `launch_terminal.bat`. See [`WORKING.md`](WORKING.md) for the guidance.
 
 ## 2. Project structure
 
@@ -34,26 +34,22 @@ Model_18/
     └── train_hft_ai.py              # Feature CSV → trained train.pth
 ```
 
-`Abondend_Model_18` is the spelling used by the current folder. It appears to be an archived/older training area, but its scripts are relevant to the training pipeline. Keep or rename it consistently before changing paths.
 
 
-## 2A. Screenshots — Quick Visual Reference
+## 2A. Quick Visual Reference
 
-The three screenshots below are embedded in this document and stored in `screenshots/`. Keep the folder beside this README when pushing to GitHub so the pictures render correctly. The operator starts the terminal from the launcher, monitors the dashboard, and checks actual position/order details directly in MT5.
-
-These screenshots show the intended launch-and-monitor workflow. The images are stored in the repository's `screenshots/` folder so they also render on GitHub.
 
 ### 1. Project folder and launcher
 
 Double-click `launch_terminal.bat` (Windows may hide the `.bat` extension, so it can appear as `launch_terminal`).
 
-![Model 18 project folder with the batch launcher highlighted](screenshots/01-project-folder-launcher.png)
+![Model project folder with the batch launcher highlighted](screenshots/01-project-folder-launcher.png)
 
-### 2. Model 18 dashboard
+### 2. Model  dashboard
 
 The dashboard provides the live BTCUSD price, spread, BUY/SELL confidence, active execution status, live PnL, and the emergency kill-switch control.
 
-![Model 18 Streamlit monitoring dashboard](screenshots/02-model-18-dashboard.png)
+![Model Streamlit monitoring dashboard](screenshots/02-model-18-dashboard.png)
 
 ### 3. MetaTrader 5 trade terminal
 
